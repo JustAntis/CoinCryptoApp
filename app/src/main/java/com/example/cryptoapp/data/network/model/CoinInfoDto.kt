@@ -1,6 +1,7 @@
 package com.example.cryptoapp.data.network.model
 
 import com.google.gson.annotations.SerializedName
+import javax.inject.Inject
 
 
 data class CoinInfoDto(

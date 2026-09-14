@@ -4,6 +4,7 @@ import com.example.cryptoapp.data.network.model.CoinNamesListDto
 import com.example.cryptoapp.data.network.model.CoinInfoJsonContainerDto
 import retrofit2.http.GET
 import retrofit2.http.Query
+import javax.inject.Inject
 
 interface ApiService {
     @GET("top/totalvolfull")

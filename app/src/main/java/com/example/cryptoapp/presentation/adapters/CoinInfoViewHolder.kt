@@ -1,6 +1,5 @@
 package com.example.cryptoapp.presentation.adapters
 
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.databinding.ItemCoinInfoBinding
 

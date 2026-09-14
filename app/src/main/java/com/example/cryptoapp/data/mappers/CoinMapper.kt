@@ -11,9 +11,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import javax.inject.Inject
 
-class CoinMapper {
-
+class CoinMapper @Inject constructor(){
     fun mapDtoToDbModel(coinInfoDto: CoinInfoDto): CoinInfoDbModel {
         return CoinInfoDbModel(
             fromSymbol = coinInfoDto.fromSymbol,
@@ -59,9 +59,9 @@ class CoinMapper {
     }
 
     fun mapNamesListToString(coinNamesListDto: CoinNamesListDto): String{
-        return coinNamesListDto.names?.map {
-            it.coinNameDto?.name
-        }?.joinToString(",") ?: ""
+        return coinNamesListDto.names.joinToString(",") {
+            it.coinNameDto.name
+        }
     }
 
     private fun convertTimestampToTime(timestamp: Long?): String {

@@ -2,8 +2,9 @@ package com.example.cryptoapp.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.cryptoapp.domain.entities.CoinInfo
+import javax.inject.Inject
 
-class CoinInfoDiffCallback: DiffUtil.ItemCallback<CoinInfo>() {
+class CoinInfoDiffCallback @Inject constructor(): DiffUtil.ItemCallback<CoinInfo>() {
     override fun areItemsTheSame(
         oldItem: CoinInfo,
         newItem: CoinInfo

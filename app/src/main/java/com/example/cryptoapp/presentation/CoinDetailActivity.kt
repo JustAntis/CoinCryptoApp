@@ -6,9 +6,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.ActivityCoinDetailBinding
+import javax.inject.Inject
 import kotlin.getValue
 
 class CoinDetailActivity : AppCompatActivity() {
+
     private lateinit var fromSymbol: String
     private val binding by lazy {
         ActivityCoinDetailBinding.inflate(layoutInflater)

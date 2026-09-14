@@ -1,6 +1,6 @@
 package com.example.cryptoapp.presentation.adapters
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -8,8 +8,9 @@ import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.ItemCoinInfoBinding
 import com.example.cryptoapp.domain.entities.CoinInfo
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-class CoinInfoListAdapter : ListAdapter<CoinInfo, CoinInfoViewHolder>(
+class CoinInfoListAdapter @Inject constructor(): ListAdapter<CoinInfo, CoinInfoViewHolder>(
     CoinInfoDiffCallback()
 ) {
     var onCoinClickListener: ((CoinInfo) -> Unit)? = null
