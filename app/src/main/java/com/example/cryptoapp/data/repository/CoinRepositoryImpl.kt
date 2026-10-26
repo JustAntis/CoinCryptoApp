@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.example.cryptoapp.data.database.AppDatabase
@@ -45,10 +46,17 @@ class CoinRepositoryImpl @Inject constructor(
 
     override suspend fun loadData() {
         val workManager = WorkManager.getInstance(application)
-        workManager.enqueueUniqueWork(
-            CoinSyncWorker.WORKER_NAME,
-            ExistingWorkPolicy.REPLACE,
-            CoinSyncWorker.makeRequest()
+        workManager.enqueueUniquePeriodicWork(
+            CoinSyncWorker.PERIODIC_WORKER_NAME,
+            ExistingPeriodicWorkPolicy.KEEP,
+            CoinSyncWorker.makePeriodicRequest()
         )
+        if (CoinSyncWorker.isRefreshNeeded(application)) {
+            workManager.enqueueUniqueWork(
+                CoinSyncWorker.WORKER_NAME,
+                ExistingWorkPolicy.KEEP,
+                CoinSyncWorker.makeRequest()
+            )
+        }
     }
 }

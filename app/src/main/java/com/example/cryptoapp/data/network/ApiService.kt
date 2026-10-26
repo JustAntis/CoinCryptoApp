@@ -1,5 +1,6 @@
 package com.example.cryptoapp.data.network
 
+import com.example.cryptoapp.BuildConfig
 import com.example.cryptoapp.data.network.model.CoinNamesListDto
 import com.example.cryptoapp.data.network.model.CoinInfoJsonContainerDto
 import retrofit2.http.GET
@@ -22,7 +23,7 @@ interface ApiService {
     ): CoinInfoJsonContainerDto
 
     companion object {
-        private const val API_KEY = "REDACTED_API_KEY"
+        private const val API_KEY = BuildConfig.CRYPTOCOMPARE_API_KEY
         private const val QUERY_PARAM_API_KEY = "api_key"
         private const val QUERY_PARAM_LIMIT = "limit"
         private const val QUERY_PARAM_TO_SYMBOL = "tsym"
